@@ -120,18 +120,29 @@ class _TextEditingBoxState extends State<TextEditingBox> {
                   widget.newText.scale = tap.scale;
                   angle = tap.rotation;
                 }
-                if ((widget.newText.left + tap.delta.dx - deltaOffset.dx) <=
+                if ((widget.newText.left +
+                            tap.localFocalPoint.dx -
+                            deltaOffset.dx) <=
                         widget.boundWidth &&
-                    (widget.newText.left + tap.delta.dx - deltaOffset.dx) > 0) {
-                  widget.newText.left += tap.delta.dx - deltaOffset.dx;
+                    (widget.newText.left +
+                            tap.localFocalPoint.dx -
+                            deltaOffset.dx) >
+                        0) {
+                  widget.newText.left +=
+                      tap.localFocalPoint.dx - deltaOffset.dx;
                 }
-                if ((widget.newText.top + tap.delta.dy - deltaOffset.dy) <
+                if ((widget.newText.top +
+                            tap.localFocalPoint.dy -
+                            deltaOffset.dy) <
                         widget.boundHeight &&
-                    (widget.newText.top + tap.delta.dy - deltaOffset.dy) > 0) {
-                  widget.newText.top += tap.delta.dy - deltaOffset.dy;
+                    (widget.newText.top +
+                            tap.localFocalPoint.dy -
+                            deltaOffset.dy) >
+                        0) {
+                  widget.newText.top += tap.localFocalPoint.dy - deltaOffset.dy;
                 }
 
-                deltaOffset = tap.delta;
+                deltaOffset = tap.localFocalPoint;
               });
             },
             onTap: () {
@@ -234,7 +245,7 @@ class _TextEditingBoxState extends State<TextEditingBox> {
                   left: 0,
                   child: GestureDetector(
                     onScaleUpdate: (detail) {
-                      setState(() => angle = detail.delta.direction);
+                      setState(() => angle = detail.localFocalPoint.direction);
                     },
                     child: widget.isSelected
                         ? Container(
