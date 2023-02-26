@@ -118,14 +118,13 @@ class _StickerEditingBoxScreenState extends State<StickerEditingBoxScreen> {
                 boundHeight: 200,
                 boundWidth: 200,
                 pictureModel: PictureModel(
-                  isNetwork: true,
-                  isSelected: false,
-                  left: 50,
-                  top: 50,
-                  scale: 1,
-                  stringUrl:
-                      'https://raw.githubusercontent.com/Harsh-Radadiya/sticker_editor/master/assets/t-shirt.jpeg',
-                )),
+                    isNetwork: true,
+                    isSelected: false,
+                    left: 50,
+                    top: 50,
+                    scale: 1,
+                    stringUrl:
+                        'https://paulsdiscount.co.uk/1459-medium_default/t-shirts-white.jpg')),
           ],
         ),
       )),
